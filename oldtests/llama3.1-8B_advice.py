@@ -1,6 +1,10 @@
 # This is the program I wrote when I assumed I was using Llama-3.1-8B.
 # It turned out to be too RAM-intensive for my poor Optiplex 780.
 
+# Importing Flask API for web app communication
+from flask import Flask, request, jsonify
+
+
 import sys
 sys.path = [p for p in sys.path if not p.startswith('/usr/lib/python3/dist-packages')]
 # ^ Because outdated python3 folder was being annoying
@@ -40,9 +44,9 @@ generator = pipeline(
 user_input = "Dad, I've been feeling sad recently. What should I do?"
 prompt = "You are a wise, loving dad giving wholesome life advice. Your kid says, \"{user_input}\". What do you say?"
 
-response = generator(prompt, max_new_tokens=100, temperature=0.7, do_sample=True)
+generated_text = generator(prompt, max_new_tokens=100, temperature=0.7, do_sample=True)
 
-print(response)
+print(generated_text)
 
 # The prompt! 
 

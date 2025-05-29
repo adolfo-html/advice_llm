@@ -7,7 +7,7 @@
         <div class="form_container">
             <form id="form">
                 <textarea id="user_input" placeholder="Ask for advice..." style="width: 100%;" required></textarea>
-                <input id="submit_button" type="submit">
+                <input id="submit_button" type="submit" value="Send">
             </form>
         </div>
 
@@ -15,30 +15,7 @@
             <p id="responsebox"></p>
         </div>
 
-        <script>
-            document.getElementById('form').addEventListener('submit', async function sendPrompt() {
-                const form = document.getElementById('user_input');
-                const prompt = form.value;
-
-                document.getElementById("submit_button").value = "Sending...";
-
-                const response = await fetch("http://localhost:5000/generate", { // Local testing for now!
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ prompt }) // Formats the query data into JSON. Compatible with HTML to Python APIs
-                });
-
-                const data = await response.json();
-                document.getElementById("response").innerText = data.generated_text || JSON.stringify(data);
-            })
-
-            if (response.ok) {
-                alert('Success!');
-                document.getElementById("send_button").value = "Send";
-                location.reload();
-            }
-        </script>
+        <!-- Script that sends textarea input on form submit -->
+        <script src="queryToModel.js"></script>
     </body>
 </html>

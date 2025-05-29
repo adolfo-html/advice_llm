@@ -1,0 +1,7 @@
+This is just for useful code snippets I might need later.
+
+For when Python tries to use 'python3/distutils' path :
+
+import sys
+sys.path = [p for p in sys.path if not p.startswith('/usr/lib/python3/dist-packages')]
+# ^ Because outdated python3 folder was being annoying

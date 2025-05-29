@@ -18,8 +18,14 @@ Next, I installed the `torch` library in my program, which is the deep learning 
 
 An important step in this process was to obtain access to the Hugging Face repositories I needed. I had to make an account on huggingface.co, then create an access token. Once generated, I made it an environment variable to discreetly plug it into my Python program. The program needs this token to verify itself to the repository before importing the transformers. I imported the library `huggingface_hub` to basically authenticate the program with my token.
 
-Then I used the sample code.
+Then I modified the sample code provided by Hugging Face to make the pipeline, get the prompt, and .
 
 ### Making an interface
 
-I want to make this a web application. So, now that I know my program works, I want to establish a line of communication between a website and the Python script. For now, I'm gonna work on it locally.
+I want to make this a web application. So, now that I know that my program works, I want to establish a line of communication between a website and the Python script. For now, I'm gonna work on it locally.
+
+So right now, my goal is to have the .html file communicate with the Python script via fetch(). This means I'll be sending an HTTP request (with the fetch function) to the Python program and waiting for a request on the front-end.
+
+I have a lot of questions already, like if Python needs to be listening before the HTTP request is sent to it (probably), and how the AWS server is going to automatically run it. And if AWS is gonna be good enough for the program. And if I need to download the 6.4 GB vector embedding file to the server or not. But I'm getting ahead of myself.
+
+I'll just focus on interface.html for now.
