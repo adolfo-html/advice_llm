@@ -10,7 +10,7 @@ async function promptRequest(e) { // Declaring the function
 
     // Logging what's happening
     document.getElementById("submit_button").value = "Sending...";
-    console.log("processing fetch request ...");
+    console.log("communicating with server ...");
 
     // SENDING the request
     const response = await fetch("http://localhost:5000/generate", { // Local testing for now!
@@ -26,9 +26,6 @@ async function promptRequest(e) { // Declaring the function
 
     // Variable awaiting the response JSON!
     const data = await response.json();
-
-    // So I can see
-    console.log(response);
 
     document.getElementById("responsebox").innerText = data.reply;
     document.getElementById('submit_button').disabled = false;

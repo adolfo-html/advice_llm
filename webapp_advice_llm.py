@@ -36,6 +36,7 @@ def processInput():
     userInput = request.get_json().get("input")
 
     # Running the LLM starts here!
+    # Model of choice: Llama-3.2-3B-Instruct
 
     model_id = "meta-llama/Llama-3.2-3B-Instruct"
 
@@ -54,9 +55,10 @@ def processInput():
     ]
 
     # Generate output
+    print("Generating response ...")
     outputText = pipe(
         prompt,
-        max_new_tokens=256,
+        max_new_tokens=256, # How long the response is
     )
 
     reply = outputText[0]['generated_text'][-1]['content'] # isolate response

@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Kind Sans';
+    src:url(kind-sans-thin.otf);
+}
+
+/* Chat */
+
+.response_container {
+    padding: 0 30%;
+}
+
+#responsebox {
+    font-family: 'Kind Sans';
+    font-weight: bold;
+    font-size: 20px;
+}
